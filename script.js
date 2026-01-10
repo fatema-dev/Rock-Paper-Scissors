@@ -34,38 +34,53 @@ function getHumanChoice() {
 // 	console.log("An Error Occured: " + e.message);
 // }
 
-var humanScore = 0;
-var computerScore = 0;
-var round = 0;
+function playGame() {
+	var humanScore = 0;
+	var computerScore = 0;
 
-function playRound(humanChoice, computerChoice){
-    let player = humanChoice.toLowerCase();
-    let playerWins = true;
-    let computerWins = false;
-    if(player === computerChoice){
-       console.log("Tie");
-    }else if(player === "rock" && computerChoice ==="scissors"){
-        console.log("You win! Rock beats Scissors!");
-    }else if(player === "paper" && computerChoice==="rock"){
-        console.log("You win! Paper beats Rock!");
-    }else if(player === "scissors" && computerChoice === "paper"){
-        console.log("You win! Scissors beats Paper!");
-    }else{
-        console.log("You lose! Paper beats Rock!");
-        playerWins= false;
-        computerWins= true;
-    }
+	function playRound(humanChoice, computerChoice) {
+		let player = humanChoice.toLowerCase();
+		let playerWins = true;
+		let computerWins = false;
+		if (player === computerChoice) {
+			playerWins = false;
+			console.log("Tie");
+		} else if (player === "rock" && computerChoice === "scissors") {
+			console.log("You win! Rock beats Scissors!");
+		} else if (player === "paper" && computerChoice === "rock") {
+			console.log("You win! Paper beats Rock!");
+		} else if (player === "scissors" && computerChoice === "paper") {
+			console.log("You win! Scissors beats Paper!");
+		} else {
+			console.log("You lose! Paper beats Rock!");
+			playerWins = false;
+			computerWins = true;
+		}
 
-    if(computerWins){
-        computerScore++;
-    }else{
-        humanScore++;
-    }
-    round++;
-    return;
+		if (computerWins) {
+			computerScore++;
+		} else if (playerWins) {
+			humanScore++;
+		}
+		return;
+	}
+
+	for (let round = 1; round < 6; round++) {
+		let computerSelection = getComputerChoice();
+		let humanSelection = getHumanChoice();
+		try {
+			console.log("Computer Choose: " + computerSelection);
+			console.log("Your Choice: " + humanSelection);
+		} catch (e) {
+			console.log("An Error Occured: " + e.message);
+		}
+		playRound(humanSelection, computerSelection);
+	}
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+playGame();
 
-playRound(humanSelection, computerSelection);
+// variables updating tests
+// console.log(humanScore);
+// console.log(computerScore);
+// console.log(round);
