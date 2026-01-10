@@ -28,7 +28,7 @@ This is a simple implementation of the classic **Rock Paper Scissors** game, bui
 ## 🧠 What I Learned
 During this project, I practiced:
 - Linking external JavaScript files to HTML.
-- Using `Math.random()` and `Math.floor()` for AI logic.
+- Using `Math.random()` and `Math.floor()` for computer logic.
 - Handling user input via `prompt()`.
 - Managing global and local variable scopes.
 - Using `for` loops to repeat game rounds.
