@@ -33,10 +33,10 @@ function getHumanChoice() {
 // } catch (e) {
 // 	console.log("An Error Occured: " + e.message);
 // }
+    var humanScore = 0;
+	var computerScore = 0;
 
 function playGame() {
-	var humanScore = 0;
-	var computerScore = 0;
 
 	function playRound(humanChoice, computerChoice) {
 		let player = humanChoice.toLowerCase();
@@ -44,7 +44,8 @@ function playGame() {
 		let computerWins = false;
 		if (player === computerChoice) {
 			playerWins = false;
-			console.log("Tie");
+			console.log("Tie"); 
+            computerScore++; humanScore++;
 		} else if (player === "rock" && computerChoice === "scissors") {
 			console.log("You win! Rock beats Scissors!");
 		} else if (player === "paper" && computerChoice === "rock") {
@@ -79,6 +80,10 @@ function playGame() {
 }
 
 playGame();
+console.log(" ===== SCOREBOARD ===== ");
+console.log("Your Score: "+humanScore +"/ 5");
+console.log("Computer Score: "+computerScore +"/ 5");
+
 
 // variables updating tests
 // console.log(humanScore);
