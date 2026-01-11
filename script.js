@@ -10,11 +10,6 @@ function getComputerChoice() {
 		throw new Error("Undefined Behaviour.");
 	}
 }
-// try {
-// 	console.log("Computer Choose: " + getComputerChoice());
-// } catch (e) {
-// 	console.log("An Error Occured: " + e.message);
-// }
 
 function getHumanChoice() {
 	let choice = prompt("Enter your choice (rock, paper or scissors): ");
@@ -28,11 +23,7 @@ function getHumanChoice() {
 		throw new Error("Input is Invalid. Please try again.");
 	}
 }
-// try {
-// 	console.log("Your Choice: " + getHumanChoice());
-// } catch (e) {
-// 	console.log("An Error Occured: " + e.message);
-// }
+
     var humanScore = 0;
 	var computerScore = 0;
 
@@ -85,7 +76,4 @@ console.log("Your Score: "+humanScore +"/ 5");
 console.log("Computer Score: "+computerScore +"/ 5");
 
 
-// variables updating tests
-// console.log(humanScore);
-// console.log(computerScore);
-// console.log(round);
+
