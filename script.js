@@ -24,19 +24,17 @@ function getHumanChoice() {
 	}
 }
 
-    var humanScore = 0;
-	var computerScore = 0;
+var humanScore = 0;
+var computerScore = 0;
 
 function playGame() {
-
 	function playRound(humanChoice, computerChoice) {
 		let player = humanChoice.toLowerCase();
 		let playerWins = true;
 		let computerWins = false;
 		if (player === computerChoice) {
 			playerWins = false;
-			console.log("Tie"); 
-            computerScore++; humanScore++;
+			console.log("Tie");
 		} else if (player === "rock" && computerChoice === "scissors") {
 			console.log("You win! Rock beats Scissors!");
 		} else if (player === "paper" && computerChoice === "rock") {
@@ -72,8 +70,5 @@ function playGame() {
 
 playGame();
 console.log(" ===== SCOREBOARD ===== ");
-console.log("Your Score: "+humanScore +"/ 5");
-console.log("Computer Score: "+computerScore +"/ 5");
-
-
-
+console.log("Your Score: " + humanScore + "/ 5");
+console.log("Computer Score: " + computerScore + "/ 5");
