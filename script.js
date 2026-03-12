@@ -27,8 +27,8 @@ function getHumanChoice() {
 var humanScore = 0;
 var computerScore = 0;
 
-function playGame() {
-	function playRound(humanChoice, computerChoice) {
+
+function playRound(humanChoice, computerChoice) {
 		let player = humanChoice.toLowerCase();
 		let playerWins = true;
 		let computerWins = false;
@@ -53,10 +53,11 @@ function playGame() {
 			humanScore++;
 		}
 		return;
-	}
 }
 
-playGame();
+
+
+
 console.log(" ===== SCOREBOARD ===== ");
-console.log("Your Score: " + humanScore + "/ 5");
-console.log("Computer Score: " + computerScore + "/ 5");
+console.log("Your Score: " + humanScore);
+console.log("Computer Score: " + computerScore);
