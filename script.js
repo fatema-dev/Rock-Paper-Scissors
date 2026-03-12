@@ -54,18 +54,6 @@ function playGame() {
 		}
 		return;
 	}
-
-	for (let round = 1; round < 6; round++) {
-		let computerSelection = getComputerChoice();
-		let humanSelection = getHumanChoice();
-		try {
-			console.log("Computer Choose: " + computerSelection);
-			console.log("Your Choice: " + humanSelection);
-		} catch (e) {
-			console.log("An Error Occured: " + e.message);
-		}
-		playRound(humanSelection, computerSelection);
-	}
 }
 
 playGame();
