@@ -29,30 +29,27 @@ var computerScore = 0;
 
 
 function playRound(humanChoice, computerChoice) {
-		let player = humanChoice.toLowerCase();
-		let playerWins = true;
-		let computerWins = false;
-		if (player === computerChoice) {
-			playerWins = false;
-			console.log("Tie");
-		} else if (player === "rock" && computerChoice === "scissors") {
-			console.log("You win! Rock beats Scissors!");
-		} else if (player === "paper" && computerChoice === "rock") {
-			console.log("You win! Paper beats Rock!");
-		} else if (player === "scissors" && computerChoice === "paper") {
-			console.log("You win! Scissors beats Paper!");
-		} else {
-			console.log("You lose!");
-			playerWins = false;
-			computerWins = true;
-		}
-
-		if (computerWins) {
-			computerScore++;
-		} else if (playerWins) {
-			humanScore++;
-		}
-		return;
+    const player = humanChoice.toLowerCase();
+    const computer = computerChoice.toLowerCase();
+    
+    if (player === computer) {
+        console.log("Tie!");
+        return; // Exit early on tie
+    }
+    
+    // Player win conditions
+    if (
+        (player === "rock" && computer === "scissors") ||
+        (player === "paper" && computer === "rock") ||
+        (player === "scissors" && computer === "paper")
+    ) {
+        console.log(`You win! ${player} beats ${computer}!`);
+        humanScore++;
+    } else {
+        console.log(`You lose! ${computer} beats ${player}!`);
+        computerScore++;
+    }
+	return;
 }
 
 // Adding event listeners for buttons
@@ -65,6 +62,3 @@ paperbtn.addEventListener("click", () => playRound("paper",getComputerChoice()))
 const scissorsbtn = document.querySelector("#scisbtn");
 scissorsbtn.addEventListener("click", () => playRound("scissors", getComputerChoice()));
 
-console.log(" ===== SCOREBOARD ===== ");
-console.log("Your Score: " + humanScore);
-console.log("Computer Score: " + computerScore);
