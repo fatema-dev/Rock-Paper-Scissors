@@ -42,7 +42,7 @@ function playRound(humanChoice, computerChoice) {
 		} else if (player === "scissors" && computerChoice === "paper") {
 			console.log("You win! Scissors beats Paper!");
 		} else {
-			console.log("You lose! Paper beats Rock!");
+			console.log("You lose!");
 			playerWins = false;
 			computerWins = true;
 		}
@@ -55,8 +55,15 @@ function playRound(humanChoice, computerChoice) {
 		return;
 }
 
+// Adding event listeners for buttons
+const rockbtn = document.querySelector("#rockbtn");
+rockbtn.addEventListener("click", () => playRound("rock", getComputerChoice()));
 
+const paperbtn = document.querySelector("#paperbtn");
+paperbtn.addEventListener("click", () => playRound("paper",getComputerChoice()));
 
+const scissorsbtn = document.querySelector("#scisbtn");
+scissorsbtn.addEventListener("click", () => playRound("scissors", getComputerChoice()));
 
 console.log(" ===== SCOREBOARD ===== ");
 console.log("Your Score: " + humanScore);
