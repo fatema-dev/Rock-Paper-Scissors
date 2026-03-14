@@ -11,25 +11,24 @@ function getComputerChoice() {
 	}
 }
 
-function getHumanChoice() {
-	let choice = prompt("Enter your choice (rock, paper or scissors): ");
-	if (choice.toLowerCase() === "rock") {
-		return "rock";
-	} else if (choice.toLowerCase() === "paper") {
-		return "paper";
-	} else if (choice.toLowerCase() === "scissors") {
-		return "scissors";
-	} else {
-		throw new Error("Input is Invalid. Please try again.");
-	}
-}
+// function getHumanChoice() {
+// 	let choice = prompt("Enter your choice (rock, paper or scissors): ");
+// 	if (choice.toLowerCase() === "rock") {
+// 		return "rock";
+// 	} else if (choice.toLowerCase() === "paper") {
+// 		return "paper";
+// 	} else if (choice.toLowerCase() === "scissors") {
+// 		return "scissors";
+// 	} else {
+// 		throw new Error("Input is Invalid. Please try again.");
+// 	}
+// }
 
 var humanScore = 0;
 var computerScore = 0;
 var round = 1;
 const game = document.querySelector(".gameplay");
-const rounds = document.createElement("h3");
-const result = document.createElement("p");
+
 
 
 const scoreboard = document.createElement("div");
@@ -39,20 +38,26 @@ const final = document.createElement("h4");
 
 
 function playRound(humanChoice, computerChoice) {
-	if (humanScore >= 5) {
-		displayScoreboard();
+	if (humanScore == 5 || computerScore == 5 ) {
+		const gameEnd = document.createElement('h2');
+		gameEnd.textContent = "GAME OVER";
+		game.appendChild(gameEnd);
 		return;
 	}
 
 	const player = humanChoice.toLowerCase();
 	const computer = computerChoice.toLowerCase();
-	rounds.textContent = "Round: " + round;
-	game.appendChild(rounds);
+
+	const roundDisplay = document.createElement('h3');
+	roundDisplay.textContent = "Round: " + round;
+	game.appendChild(roundDisplay);
 	round++;
 
+	const resultDisplay = document.createElement('p');
+
 	if (player === computer) {
-		result.textContent = "Tie";
-		game.appendChild(result);
+		resultDisplay.textContent = "Tie";
+		game.appendChild(resultDisplay);
 		return; // Exit early on tie
 	}
 
@@ -62,14 +67,14 @@ function playRound(humanChoice, computerChoice) {
 		(player === "paper" && computer === "rock") ||
 		(player === "scissors" && computer === "paper")
 	) {
-		result.textContent = `You win! ${player} beats ${computer}!`;
+		resultDisplay.textContent = `You win! ${player} beats ${computer}!`;
 		humanScore++;
 	} else {
-		result.textContent = `You lose! ${computer} beats ${player}!`;
+		resultDisplay.textContent = `You lose! ${computer} beats ${player}!`;
 		computerScore++;
 	}
 
-	game.appendChild(result);
+	game.appendChild(resultDisplay);
 	return;
 }
 
@@ -90,16 +95,23 @@ scissorsbtn.addEventListener("click", () =>
 const resetbtn = document.querySelector("#reset");
 resetbtn.addEventListener("click", () => resetGame());
 
+const scorebtn = document.querySelector("#score");
+scorebtn.addEventListener("click", () => displayScoreboard());
+
+
+
 function displayScoreboard() {
-	pScore.textContent = "Your Score is:			" + humanScore;
-	cScore.textContent = "Your Opponent Score is:	" + computerScore;
+	pScore.textContent = "Your Score is:" + humanScore;
+	cScore.textContent = "Your Opponent Score is:" + computerScore;
 
 	scoreboard.appendChild(pScore);
 	scoreboard.appendChild(cScore);
 
 	if (humanScore > computerScore) {
 		final.textContent = "Congratulations! You won!!";
-	} else {
+	} else if (humanScore == computerScore){
+		final.textContent = "It is a Tie!";
+	}else {
 		final.textContent = "You lost! Try again.";
 	}
 	scoreboard.appendChild(final);
@@ -111,11 +123,5 @@ function resetGame() {
 	computerScore = 0;
 	round = 1;
 
-	scoreboard.removeChild(pScore);
-	scoreboard.removeChild(cScore);
-	scoreboard.removeChild(final);
-	game.removeChild(scoreboard);
-
-	game.removeChild(result);
-	game.removeChild(rounds);
+	game.innerHTML = ''; 
 }
