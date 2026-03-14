@@ -1,21 +1,17 @@
-# Rock-Paper-Scissors
-
+# About the project 
 This is a simple implementation of the classic **Rock Paper Scissors** game, built as part of my journey into JavaScript and web development. The game is played entirely within the browser's developer console.
 
-## 🚀 Features
-
+## Features
 - **5-Round Match:** The game runs for a total of 5 rounds.
 - **Randomized AI:** The computer picks its move using a randomized logic.
 - **Case-Insensitive Input:** The game accepts "Rock", "rock", or "ROCK".
 - **Live Scoreboard:** Tracks your score vs. the computer and announces it at the end.
 
-## 🛠️ Technologies Used
-
+## Technologies Used
 - **HTML5:** Basic structure for the web page.
 - **JavaScript:** Game logic, including functions, loops, and conditional statements.
 
-## 💻 Environment
-
+##  Environment
 - **Operating System:** Windows 11 with WSL2 (Ubuntu 22.04)
 - **Development Tool:** Visual Studio Code
 - **Browser (Runtime):** Microsoft Edge (Chromium)
@@ -34,8 +30,7 @@ This is a simple implementation of the classic **Rock Paper Scissors** game, bui
 | :-------------------------------: | :---------------------------------------: |
 | ![User Input](gameplay-input.png) | ![Final Scoreboard](gameplay-results.png) |
 
-## 🧠 What I Learned
-
+## ✅ What I Learned
 During this project, I practiced:
 
 - Linking external JavaScript files to HTML.
