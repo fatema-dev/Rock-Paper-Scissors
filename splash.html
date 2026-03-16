@@ -1,19 +1,97 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Rock Paper Scissors</title>
-		<link rel="stylesheet" href="style.css" />
-		<script defer src="script.js"></script>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap"
-			rel="stylesheet"
-		/>
-	</head>
-	<body>
-        
-    </body>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rock Paper Scissors</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:     #0a0a0f;
+      --yellow: #f5c542;
+      --red:    #e05555;
+      --green:  #55e065;
+      --blue:   #5599ff;
+      --dim:    #55557a;
+      --font:   'Press Start 2P', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      font-family: var(--font);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+
+      background-image:
+        linear-gradient(rgba(58,58,106,.4) 2px, transparent 1px),
+        linear-gradient(90deg, rgba(58,58,106,.08) 2px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    /* ── Title ── */
+    .title span {
+      display: block;
+      text-align: center;
+      font-size: clamp(1.6rem, 5vw, 3rem);
+      letter-spacing: .1em;
+      line-height: 2;
+    }
+    .title span:nth-child(1) { color: var(--red); }
+    .title span:nth-child(2) { color: white; }
+    .title span:nth-child(3) { color: var(--blue); }
+
+    /* ── Play button ── */
+    .play-btn {
+      font-family: var(--font);
+      font-size: .75rem;
+      color: #0a0a0f;
+      background: var(--yellow);
+      border: none;
+      padding: 18px 44px;
+      cursor: pointer;
+      letter-spacing: .12em;
+      box-shadow: 4px 4px 0 #a87e1a;
+      transition: transform .08s, box-shadow .08s;
+    }
+    .play-btn:hover  { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 #a87e1a; }
+    .play-btn:active { transform: translate(2px, 2px);   box-shadow: 2px 2px 0 #a87e1a; }
+
+    /* ── Blinking hint ── */
+    .hint {
+      font-size: .4rem;
+      color: var(--dim);
+      letter-spacing: .15em;
+      animation: blink 1.1s step-end infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="title">
+    <span>ROCK</span>
+    <span>PAPER</span>
+    <span>SCISSORS</span>
+  </div>
+
+  <button class="play-btn" id="play-btn">&#9654; PLAY</button>
+
+  <p class="hint">— PRESS TO START —</p>
+
+  <script>
+    document.getElementById('play-btn').addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+  </script>
+
+</body>
 </html>
