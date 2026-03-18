@@ -26,9 +26,6 @@ This is a simple implementation of the classic **Rock Paper Scissors** game, bui
 3. **Follow the Prompts:** A popup will appear asking for your move. Type `rock`, `paper`, or `scissors`.
 4. **Watch the Results:** After 5 rounds, check the console to see the final scoreboard!
 
-|       1. User Input Prompt        |           2. Console Scoreboard           |
-| :-------------------------------: | :---------------------------------------: |
-| ![User Input](gameplay-input.png) | ![Final Scoreboard](gameplay-results.png) |
 
 ## ✅ What I Learned
 During this project, I practiced:
