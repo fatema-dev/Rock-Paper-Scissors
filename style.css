@@ -1,18 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* ── Variables ── */
 :root {
-	--bg: #0a0a0f;
-	--panel: #13131f;
-	--border: #3a3a6a;
-	--yellow: #f5c542;
-	--red: #e05555;
-	--green: #55e065;
-	--dim: #55557a;
-	--text: #ddddf0;
-	--font: "Press Start 2P", monospace;
+  --bg:     #0a0a0f;
+  --panel:  #12121f;
+  --border: #3a3a6a;
+  --yellow: #f5c542;
+  --red:    #e05555;
+  --green:  #55e065;
+  --dim:    #55557a;
+  --text:   #ddddf0;
 }
 
+/* ── Base ── */
 * {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
+body {
+  background: var(--bg);
+  font-family: 'Press Start 2P', monospace;
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 16px;
+  gap: 32px;
+}
+
+/* ── Title ── */
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.web-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.web-title span {
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.web-title span:nth-child(1) { color: var(--red); }
+.web-title span:nth-child(2) { color: var(--text); }
+.web-title span:nth-child(3) { color: #5599ff; }
+
+.emoji-row {
+  display: flex;
+  gap: 16px;
+  font-size: 2rem;
+}
+
+/* ── Container ── */
+.container {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: var(--panel);
+  border: 3px solid var(--border);
+  padding: 24px 20px;
+}
+
+/* ── Buttons ── */
+#selection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+#selection button {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 12px 16px;
+  background: var(--bg);
+  color: var(--text);
+  border: 3px solid var(--border);
+  cursor: pointer;
+}
+
+#selection button:hover {
+  background: var(--panel);
+  border-color: var(--yellow);
+  color: var(--yellow);
+}
+
+#rockbtn  { border-color: var(--red); }
+#paperbtn { border-color: var(--text); }
+#scisbtn  { border-color: var(--green); }
+
+#reset, #score {
+  font-size: 0.45rem;
+  color: var(--dim);
+  border-color: var(--dim);
+}
+
+/* ── Bot box ── */
+#bot {
+  background: var(--bg);
+  border: 3px solid var(--border);
+  padding: 14px 16px;
+  font-size: 0.5rem;
+  color: var(--dim);
+  line-height: 2;
+}
+
+/* ── Gameplay log ── */
+.gameplay {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Round heading appended by JS */
+.gameplay h3 {
+  font-size: 0.5rem;
+  color: var(--yellow);
+  letter-spacing: 0.1em;
+  padding-top: 10px;
+  border-top: 2px solid var(--border);
+}
+
+.gameplay h3:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+/* Result text appended by JS */
+.gameplay p {
+  font-size: 0.48rem;
+  line-height: 2;
+  padding-left: 8px;
+  border-left: 3px solid var(--border);
+}
+
+/* Game over heading appended by JS */
+.gameplay h2 {
+  font-size: 1rem;
+  color: var(--red);
+  text-align: center;
+  letter-spacing: 0.15em;
+}
+
+/* Scoreboard div appended by JS */
+.gameplay div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 3px solid var(--border);
+  padding-top: 12px;
+}
+
+.gameplay div p {
+  color: var(--yellow);
+  border-left: none;
+}
+
+/* Final result appended by JS */
+.gameplay h4 {
+  font-size: 0.5rem;
+  color: var(--green);
+}
