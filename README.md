@@ -2,7 +2,7 @@
 This is a simple implementation of the classic **Rock Paper Scissors** game, built as part of my journey into JavaScript and web development. The game is played entirely within the browser's developer console.
 
 ## Features
-- **10-Round Match:** The game runs for a total of 10 rounds.
+- **Match:** The game runs until either players reach 5 points.
 - **Randomized AI:** The computer picks its move using a randomized logic.
 - **Live Scoreboard:** Tracks your score vs. the computer and announces it at the end.
 
